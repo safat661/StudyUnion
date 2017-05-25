@@ -9,7 +9,7 @@
     android:paddingLeft="25dp"
     android:paddingTop="25dp"
     android:paddingBottom="25dp"
-    tools:context="com.icebug.android.studyunion.MainActivity">
+    tools:context="com.icebug.android.studyunion.LoginActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,15 +17,16 @@
         android:layout_height="wrap_content"
 
         android:layout_centerVertical="true"
-         android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
 
         <EditText
-            android:hint="Enter you email"
             android:id="@+id/editTextEmail"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Enter you email"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
         <EditText
             android:hint="Enter you password"
             android:id="@+id/editTextPassword"
@@ -37,7 +38,7 @@
         <Button
 
             android:id="@+id/buttonRegister"
-            android:text="Register"
+            android:text="Login"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_width="match_parent"
@@ -51,18 +52,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:text="If already registered."/>
+            android:text="Sign up here if not registered"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_marginBottom="73dp"
+        android:text="User Login "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"/>
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
