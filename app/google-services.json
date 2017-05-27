@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "1056382128361",
-    "firebase_url": "https://studyunion-e1ef0.firebaseio.com",
-    "project_id": "studyunion-e1ef0",
-    "storage_bucket": "studyunion-e1ef0.appspot.com"
+    "project_number": "252525052",
+    "firebase_url": "https://studychat-8b703.firebaseio.com",
+    "project_id": "studychat-8b703",
+    "storage_bucket": "studychat-8b703.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1056382128361:android:40e6edbd9fcf40db",
+        "mobilesdk_app_id": "1:252525052:android:55853948a111385a",
         "android_client_info": {
-          "package_name": "com.icebug.android.studyunion"
+          "package_name": "com.icebug.android.studychat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1056382128361-0t4hdhc1qlh8715ch8up2a65ugb0hsgg.apps.googleusercontent.com",
+          "client_id": "252525052-p2670l0r8cmeveitec9gb6k00eaok8ko.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.icebug.android.studyunion",
+            "package_name": "com.icebug.android.studychat",
             "certificate_hash": "111ef7ab10f337d0003d1885b431a4e53593c6e4"
           }
         },
         {
-          "client_id": "1056382128361-udsu60fqv1g0b42rbqei7ebmq5ihc843.apps.googleusercontent.com",
+          "client_id": "252525052-humjspsk52lsuel7hncpvq8ktft7daup.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCV1ccNtQJKeGfdLryA7NsK2TRmpUwGZyQ"
+          "current_key": "AIzaSyAnK6-dy50L3zEFRMTLblhjFSXSsOm9s74"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1056382128361-udsu60fqv1g0b42rbqei7ebmq5ihc843.apps.googleusercontent.com",
+              "client_id": "252525052-humjspsk52lsuel7hncpvq8ktft7daup.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

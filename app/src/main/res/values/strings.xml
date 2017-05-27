@@ -1,4 +1,3 @@
 <resources>
-    <string name="app_name">StudyUnion</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="app_name">ChatApp</string>
 </resources>
