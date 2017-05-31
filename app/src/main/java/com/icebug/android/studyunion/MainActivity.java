@@ -1,6 +1,7 @@
 package com.icebug.android.studyunion;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         progressDialog = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+        }
 
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -72,13 +77,15 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //display something
-                    Toast.makeText(MainActivity.this, "Registered Successfully!!", Toast.LENGTH_SHORT).show();
-                    
+                   // Toast.makeText(MainActivity.this, "Registered Successfully!!", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+
                 }else{
                     Toast.makeText(MainActivity.this, "Could not register", Toast.LENGTH_SHORT).show();
 
                 }
-
+            progressDialog.dismiss();
             }
         });
 
@@ -89,7 +96,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         registerUser();
     }
     if(view == textViewSignin){
-    // will open
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
 
     }
 

@@ -24,11 +24,11 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter you email"
+            android:hint="Email"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"/>
         <EditText
-            android:hint="Enter you password"
+            android:hint="Password"
             android:id="@+id/editTextPassword"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
@@ -37,23 +37,15 @@
             android:layout_marginTop="20dp"/>
         <Button
 
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonLogin"
             android:text="Login"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:ellipsize="middle"/>
 
-        <TextView
-            android:id="@+id/textVeiwSignin"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Sign up here if not registered"
-            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 
