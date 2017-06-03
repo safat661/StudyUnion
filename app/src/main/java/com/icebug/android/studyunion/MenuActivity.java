@@ -95,13 +95,17 @@ public class MenuActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.profile) {
+            finish();
+            startActivity(new Intent(this, ProfileActivity.class));
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.groups) {
+            finish();
+            startActivity(new Intent(this, GroupActivity.class));
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.faq) {
+
+        } else if (id == R.id.settings) {
 
         } else if (id == R.id.nav_share) {
 

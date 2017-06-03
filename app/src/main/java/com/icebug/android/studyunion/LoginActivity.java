@@ -17,12 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import static com.icebug.android.studyunion.R.id.textVeiwRegister;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonSignIn;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private TextView textViewSignup;
+    private TextView textViewRegister;
 
     private FirebaseAuth firebaseAuth;
 
@@ -31,12 +33,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonLogin);
-        textViewSignup = (TextView) findViewById(R.id.textView);
+        textViewRegister = (TextView) findViewById(textVeiwRegister);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -48,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog = new ProgressDialog(this);
 
         buttonSignIn.setOnClickListener(this);
-        textViewSignup.setOnClickListener(this);
+        textViewRegister.setOnClickListener(this);
 
     }
 
@@ -82,6 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     finish();
                     startActivity(new Intent(getApplicationContext(),MenuActivity.class));
 
+                }else{
+                    Toast.makeText(LoginActivity.this,"Sorry, Could Not Login",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -93,9 +97,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view == buttonSignIn) {
             userLogin();
         }
-        if (view == textViewSignup) {
+        if(view == textViewRegister){
             finish();
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
 
         }
     }

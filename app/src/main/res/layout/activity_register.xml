@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="25dp"
+    android:paddingLeft="25dp"
+    android:paddingTop="25dp"
+    android:paddingBottom="0dp"
+    tools:context="com.icebug.android.studyunion.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/login"/>
+
+
+    <Button
+
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="125dp"
+        android:text="Register"
+        android:layout_below="@+id/editTextPassword2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="55dp" />
+
+    <EditText
+        android:id="@+id/editTextStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editTextEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+         android:id="@+id/editTextCollegeName"
+         android:layout_width="match_parent"
+         android:layout_height="39dp"
+         android:layout_weight="0.35"
+         android:hint="College Name"
+         android:inputType="text"
+         android:paddingLeft="20dp"
+         android:paddingRight="20dp"
+         android:layout_marginTop="10dp"
+         android:layout_below="@+id/editTextStudentName"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/editTextMajor"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="Major"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editTextCollegeName"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/editTextCollegeYear"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="College Year"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@+id/editTextMajor"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+            android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@+id/editTextCollegeYear"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword2"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_weight="0.35"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editTextPassword"
+        />
+
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="Login"
+        android:layout_marginStart="15dp"
+        android:layout_below="@+id/buttonRegister"
+        android:layout_alignParentStart="true"/>
+
+</RelativeLayout>
