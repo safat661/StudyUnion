@@ -7,12 +7,16 @@ package com.icebug.android.studyunion;
 public class User {
 
     private String name;
+    public String uid;
     private String email;
+    public String firebaseToken;
     private String collegeName;
     private String collegeYear;
     private String major;
 
+
     public User(){
+
 
     }
 
@@ -26,6 +30,7 @@ public class User {
         this.collegeName = collegeName;
         this.collegeYear = collegeYear;
         this.major = major;
+
     }
 
     public void setName(String name) {
@@ -48,6 +53,14 @@ public class User {
         this.major = major;
     }
 
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setFirebaseToken(String firebaseToken) {
+        this.firebaseToken = firebaseToken;
+    }
+
     public String getName() {
         return name;
     }
@@ -67,4 +80,14 @@ public class User {
     public String getMajor() {
         return major;
     }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
+
+
 }

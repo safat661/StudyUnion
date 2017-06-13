@@ -19,13 +19,22 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements TextView.OnClickListener {
 
-    private Button buttonRegister;
-    private EditText editTextEmail, editTextPassword, editStudentName, editTextCollegeName, editTextMajor, editTextCollegeYear, editTextPassword2;
-    private TextView login;
-
     private ProgressDialog progressDialog;
+
+    @BindView(R.id.editTextEmail) EditText editTextEmail;
+    @BindView(R.id.editTextPassword) EditText editTextPassword;
+    @BindView(R.id.editTextStudentName) EditText editStudentName;
+    @BindView(R.id.editTextCollegeName) EditText editTextCollegeName;
+    @BindView(R.id.editTextPassword2) EditText editTextPassword2;
+    @BindView(R.id.editTextMajor) EditText editTextMajor;
+    @BindView(R.id.buttonRegister) Button buttonRegister;
+    @BindView(R.id.login) TextView login;
+    @BindView(R.id.editTextCollegeYear) EditText editTextCollegeYear;
 
     private FirebaseAuth firebaseAuth;
     private Firebase mRootRef;
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ButterKnife.bind(this);
 
         Firebase.setAndroidContext(this);
 
@@ -45,18 +55,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         }
-
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editStudentName = (EditText) findViewById(R.id.editTextStudentName);
-        editTextCollegeName = (EditText) findViewById(R.id.editTextCollegeName);
-        editTextCollegeYear = (EditText) findViewById(R.id.editTextCollegeYear);
-        editTextPassword2 = (EditText) findViewById(R.id.editTextPassword2);
-        editTextMajor = (EditText) findViewById(R.id.editTextMajor);
-
-        login = (TextView) findViewById(R.id.login);
 
         buttonRegister.setOnClickListener(this);
         login.setOnClickListener(this);
@@ -115,13 +115,14 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
 
                         //making user object and pushing to child.
                         User user = new User(name, email, college, year, major);
+                      //  user.setUid(firebaseAuth.getCurrentUser().getUid());
                         FirebaseDatabase.getInstance().getReference().child("Users").push().setValue(user);
-
+                   //     SavedUserInfo saved = new SavedUserInfo(user);
                         Toast.makeText(MainActivity.this, "Registered Successfully!!", Toast.LENGTH_SHORT).show();
 
                         finish();
                         startActivity(new Intent(getApplicationContext(), MenuActivity.class));
-
+                        overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     } else {
                         Toast.makeText(MainActivity.this, "Could not Register", Toast.LENGTH_SHORT).show();
                     }
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         if (view == login) {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         }
 
     }

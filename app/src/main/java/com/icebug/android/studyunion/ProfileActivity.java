@@ -9,12 +9,14 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth firebaseAuth;
-    private TextView textViewUSerEmail;
+    private TextView name,college;
     private Button buttonLogout;
+    private FirebaseDatabase ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +25,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser() == null){
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        textViewUSerEmail = (TextView)findViewById(R.id.textViewUserEmail);
+        name = (TextView)findViewById(R.id.profile_name);
 
-        textViewUSerEmail.setText("Welcome "+user.getEmail());
+     //   name.setText(SavedUserInfo.userSaved.get("User",SavedUserInfo.userSaved.name()));
 
         buttonLogout = (Button) findViewById(R.id.logoutButton);
 

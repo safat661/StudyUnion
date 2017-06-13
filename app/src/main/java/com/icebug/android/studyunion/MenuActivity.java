@@ -96,11 +96,9 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.profile) {
-            finish();
             startActivity(new Intent(this, ProfileActivity.class));
 
         } else if (id == R.id.groups) {
-            finish();
             startActivity(new Intent(this, GroupActivity.class));
 
         } else if (id == R.id.faq) {

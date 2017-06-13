@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'com.jakewharton.butterknife'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -32,20 +34,19 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
-    compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.0'
     compile 'com.google.firebase:firebase-auth:10.2.0'
     compile 'com.google.firebase:firebase-database:10.2.0'
     compile 'com.android.support:design:25.2.0'
     compile 'com.firebaseui:firebase-ui:0.6.2'
     compile 'com.firebase:firebase-client-android:2.5.0'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+
     testCompile 'junit:junit:4.12'
+
+
 }
-
-
-
-
-
-
 
 
 apply plugin: 'com.google.gms.google-services'

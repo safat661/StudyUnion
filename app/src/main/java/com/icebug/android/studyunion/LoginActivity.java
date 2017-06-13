@@ -17,14 +17,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import static com.icebug.android.studyunion.R.id.textVeiwRegister;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonSignIn;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private TextView textViewRegister;
+        @BindView(R.id.editTextEmail) EditText editTextEmail;
+        @BindView(R.id.editTextPassword) EditText editTextPassword;
+        @BindView(R.id.buttonLogin) Button buttonSignIn;
+        @BindView(R.id.textVeiwRegister) TextView textViewRegister;
 
     private FirebaseAuth firebaseAuth;
 
@@ -34,18 +36,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        buttonSignIn = (Button) findViewById(R.id.buttonLogin);
-        textViewRegister = (TextView) findViewById(textVeiwRegister);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
            finish();
            startActivity(new Intent(getApplicationContext(),MenuActivity.class));
-          }
+            overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
+        }
 
         progressDialog = new ProgressDialog(this);
 
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(LoginActivity.this, "Hello!", Toast.LENGTH_SHORT).show();
                     finish();
                     startActivity(new Intent(getApplicationContext(),MenuActivity.class));
-
+                    overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
                 }else{
                     Toast.makeText(LoginActivity.this,"Sorry, Could Not Login",Toast.LENGTH_LONG).show();
                 }
@@ -100,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == textViewRegister){
             finish();
             startActivity(new Intent(this, MainActivity.class));
+            overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);
 
         }
     }
