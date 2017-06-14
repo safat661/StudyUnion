@@ -4,16 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,10 +29,14 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
     private static final String TAG = "MainActivity";
     final List<GroupRoom> groups = new LinkedList<>();
 
+    private Intent intentthis;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+
+        intentthis = getIntent();
 
         text = (TextView)findViewById(R.id.text);
         groupList = (ListView)findViewById(R.id.group_list);
@@ -44,32 +49,48 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
             }
 
         });
-        text.setText("No Groups");
 
         displayGroups();
+
 
         groupList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                GroupRoom selectedGroup = (GroupRoom) parent.getItemAtPosition(position);
+                GroupRoom selectedGroup = (GroupRoom) parent.getAdapter().getItem(position);
 
-                checkUserEnters();
+                if(permission(selectedGroup.getSelectedUsers())) {
 
-                Intent intent = new Intent(getApplicationContext(),GroupChat.class);
+                    Intent intent = new Intent(getApplicationContext(), GroupChat.class);
 
-                intent.putExtra("GroupID",selectedGroup.getUid());
-                intent.putExtra("GroupName",selectedGroup.getGroupName());
-                intent.putExtra("GroupSize",selectedGroup.getNumberOfPeople());
+                    intent.putExtra("GroupID", selectedGroup.getUid());
+                    intent.putExtra("GroupName", selectedGroup.getGroupName());
+                    intent.putExtra("GroupSize", selectedGroup.getNumberOfPeople());
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
+                else{
 
+                    Toast.makeText(getApplicationContext(), "You are not added to this group!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+        //doesnt work
+        groupList.setEmptyView(findViewById(R.id.empty_view));
+
     }
 
-    private Boolean checkUserEnters() {
+    private Boolean permission(ArrayList<User> selectedUsers) {
+
+        for(int i = 0; i<selectedUsers.size();i++){
+
+            if(selectedUsers.get(i).getUid().equals(intentthis.getStringExtra("UserID"))){
+
+                return true;
+            }
+
+        }
 
     return false;
     }
@@ -88,15 +109,14 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
             messageText.setText(group.getGroupName());
             messageUser.setText(group.getGroupName());
 
+            groups.add(group);
+
         }
     };
         groupList.setAdapter(adapter);
 
-        //does not work yet
-        if(groupList.getItemsCanFocus()){
-            text.setVisibility(View.INVISIBLE);
-            Log.v(TAG,"yes");
-        }
+
+
     }
 
 

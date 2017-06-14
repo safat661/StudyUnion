@@ -1,0 +1,15 @@
+package com.icebug.android.studyunion;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class Faq_activity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_faq_activity);
+
+
+    }
+}

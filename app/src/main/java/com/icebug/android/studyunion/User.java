@@ -1,5 +1,8 @@
 package com.icebug.android.studyunion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by nafis on 02-Jun-17.
  */
@@ -13,6 +16,7 @@ public class User {
     private String collegeName;
     private String collegeYear;
     private String major;
+    private List<String> inGroups = new ArrayList<String>();
 
 
     public User(){
@@ -30,6 +34,7 @@ public class User {
         this.collegeName = collegeName;
         this.collegeYear = collegeYear;
         this.major = major;
+
 
     }
 
@@ -88,6 +93,7 @@ public class User {
     public String getFirebaseToken() {
         return firebaseToken;
     }
+
 
 
 }

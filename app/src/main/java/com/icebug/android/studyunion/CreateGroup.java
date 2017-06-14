@@ -52,7 +52,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                User selectedUser = (User) parent.getItemAtPosition(position);
+                User selectedUser = (User) parent.getAdapter().getItem(position);
 
                 if(selectedUsers.contains(selectedUser)){
                         Log.v(TAG,"Contains");

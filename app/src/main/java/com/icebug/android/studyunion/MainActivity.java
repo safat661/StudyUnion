@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
@@ -115,13 +116,21 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
 
                         //making user object and pushing to child.
                         User user = new User(name, email, college, year, major);
-                      //  user.setUid(firebaseAuth.getCurrentUser().getUid());
-                        FirebaseDatabase.getInstance().getReference().child("Users").push().setValue(user);
+
+                        DatabaseReference databaseRef =  FirebaseDatabase.getInstance().getReference().child("Users").push();
+
+                        user.setUid(databaseRef.getKey());
+
+                        databaseRef.setValue(user);
+
                    //     SavedUserInfo saved = new SavedUserInfo(user);
                         Toast.makeText(MainActivity.this, "Registered Successfully!!", Toast.LENGTH_SHORT).show();
 
+                        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                        intent.putExtra("UserID",user.getUid());
+
                         finish();
-                        startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                        startActivity(intent);
                         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                     } else {
                         Toast.makeText(MainActivity.this, "Could not Register", Toast.LENGTH_SHORT).show();

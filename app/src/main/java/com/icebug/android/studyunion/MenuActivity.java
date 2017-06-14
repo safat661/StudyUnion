@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Intent intentthis;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,8 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        intentthis = getIntent();
     }
 
     @Override
@@ -99,9 +103,12 @@ public class MenuActivity extends AppCompatActivity
             startActivity(new Intent(this, ProfileActivity.class));
 
         } else if (id == R.id.groups) {
-            startActivity(new Intent(this, GroupActivity.class));
+            Intent intent = new Intent(this,GroupActivity.class);
+            intent.putExtra("UserID",intentthis.getStringExtra("UserID"));
+            startActivity(intent);
 
         } else if (id == R.id.faq) {
+            startActivity(new Intent(this, Faq_activity.class));
 
         } else if (id == R.id.settings) {
 
