@@ -1,10 +1,12 @@
 package com.icebug.android.studyunion;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -38,7 +40,22 @@ public class Faq_activity extends FragmentActivity implements View.OnClickListen
 
         displayGroups();
 
+        postList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                FaqPost faqComments = (FaqPost) parent.getAdapter().getItem(position);
+
+                Intent intent = new Intent(getApplicationContext(), FaqCommentActivity.class);
+
+                intent.putExtra("FaqPost", faqComments.getPost());
+                intent.putExtra("FaqPostOP", faqComments.getOP());
+                intent.putExtra("FaqPostID", faqComments.getPostID());
+                intent.putExtra("FaqComments", faqComments.getComment());
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -64,8 +81,6 @@ public class Faq_activity extends FragmentActivity implements View.OnClickListen
             }
         };
         postList.setAdapter(adapter);
-
-
     }
 
 }

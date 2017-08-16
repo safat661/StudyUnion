@@ -8,6 +8,17 @@ public class FaqComment {
 
     private String comment;
 
+    private String commentOP;
+
+    public void setCommentOP(String commentOP) {
+        this.commentOP = commentOP;
+    }
+
+    public String getCommentOP() {
+
+        return commentOP;
+    }
+
     public FaqComment(String comment) {
         this.comment = comment;
     }

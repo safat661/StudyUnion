@@ -1,5 +1,7 @@
 package com.icebug.android.studyunion;
 
+import java.util.ArrayList;
+
 /**
  * Created by nafis on 10-Aug-17.
  */
@@ -8,7 +10,7 @@ public class FaqPost {
 
     private String post;
     private String OP;
-    private FaqComment comment;
+    private ArrayList<FaqComment> comment;
     private String postID;
     private long timeCreated;
 
@@ -29,7 +31,7 @@ public class FaqPost {
 
     }
 
-    public FaqComment getComment() {
+    public ArrayList<FaqComment> getComment() {
         return comment;
     }
 
@@ -42,8 +44,8 @@ public class FaqPost {
         this.OP = OP;
     }
 
-    public void setComment(FaqComment comment) {
-        this.comment = comment;
+    public void addComment(FaqComment comment) {
+        this.comment.add(comment);
     }
 
     public String getPost() {

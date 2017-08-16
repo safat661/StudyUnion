@@ -103,9 +103,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
             databaseRef.setValue(groupRoom);
 
-
-
             for(int i = 0; i < selectedUsers.size();i++) Log.v(TAG,selectedUsers.get(i).getName());
+
             finish();
         }
     }

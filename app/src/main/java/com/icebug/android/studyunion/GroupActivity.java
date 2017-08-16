@@ -83,7 +83,7 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
 
     private Boolean permission(ArrayList<User> selectedUsers) {
 
-        for(int i = 0; i<selectedUsers.size();i++){
+        for(int i = 0; i < selectedUsers.size();i++){
 
             if(selectedUsers.get(i).getUid().equals(intentthis.getStringExtra("UserID"))){
 
