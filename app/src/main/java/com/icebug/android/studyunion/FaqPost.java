@@ -12,9 +12,9 @@ public class FaqPost {
     private String OP;
     private ArrayList<FaqComment> comment;
     private String postID;
-    private long timeCreated;
+    private String timeCreated;
 
-    public void setTimeCreated(long timeCreated) {
+    public void setTimeCreated(String timeCreated) {
         this.timeCreated = timeCreated;
     }
 
@@ -25,6 +25,10 @@ public class FaqPost {
     public void setPostID(String postID) {
 
         this.postID = postID;
+    }
+
+    public String getTimeCreated() {
+        return timeCreated;
     }
 
     public FaqPost (){

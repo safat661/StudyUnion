@@ -13,6 +13,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by nafis on 11-Aug-17.
  */
@@ -58,17 +61,24 @@ public class PostCreateDialogue extends DialogFragment implements View.OnClickLi
         mPost.setPostID(databaseRef.getKey());
 
         TextView postDialogTextView = (TextView) mRootView.findViewById(R.id.post_dialog_edittext);
+
         String text = postDialogTextView.getText().toString();
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String formattedDate = df.format(c.getTime());
+
         mPost.setOP(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-        mPost.setTimeCreated(System.currentTimeMillis());
+
+        mPost.setTimeCreated(formattedDate);
+
         mPost.setPost(text);
 
         databaseRef.setValue(mPost);
 
         mProgressDialog.dismiss();
-        dismiss();
 
+        dismiss();
 
     }
 

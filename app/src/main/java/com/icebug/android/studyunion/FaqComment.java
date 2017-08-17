@@ -7,8 +7,17 @@ package com.icebug.android.studyunion;
 public class FaqComment {
 
     private String comment;
-
     private String commentOP;
+    private String timeCreated;
+
+    public String getTimeCreated() {
+        return timeCreated;
+    }
+
+    public void setTimeCreated(String timeCreated) {
+
+        this.timeCreated = timeCreated;
+    }
 
     public void setCommentOP(String commentOP) {
         this.commentOP = commentOP;
@@ -18,6 +27,8 @@ public class FaqComment {
 
         return commentOP;
     }
+
+    public FaqComment(){}
 
     public FaqComment(String comment) {
         this.comment = comment;
