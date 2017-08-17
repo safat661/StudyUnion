@@ -55,31 +55,33 @@ public class PostCreateDialogue extends DialogFragment implements View.OnClickLi
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.show();
 
-
-        DatabaseReference databaseRef =  FirebaseDatabase.getInstance().getReference().child("FaqPost").push();
-
-        mPost.setPostID(databaseRef.getKey());
-
         TextView postDialogTextView = (TextView) mRootView.findViewById(R.id.post_dialog_edittext);
 
         String text = postDialogTextView.getText().toString();
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        String formattedDate = df.format(c.getTime());
+        if(!text.equals("")) {
 
-        mPost.setOP(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference().child("FaqPost").push();
 
-        mPost.setTimeCreated(formattedDate);
+            mPost.setPostID(databaseRef.getKey());
 
-        mPost.setPost(text);
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String formattedDate = df.format(c.getTime());
 
-        databaseRef.setValue(mPost);
+            mPost.setOP(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
-        mProgressDialog.dismiss();
+            mPost.setTimeCreated(formattedDate);
 
-        dismiss();
+            mPost.setPost(text);
 
+            databaseRef.setValue(mPost);
+
+            mProgressDialog.dismiss();
+
+            dismiss();
+
+        }else{ mProgressDialog.dismiss();}
     }
 
 
