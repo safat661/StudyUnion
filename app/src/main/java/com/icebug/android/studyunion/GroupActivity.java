@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,9 +27,9 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
     private DatabaseReference groupsRef;
 
     private ListView groupList;
-    private TextView text;
+    private TextView text;private static final String TAG = "MainActivity";
     private FloatingActionButton fab;
-    private static final String TAG = "MainActivity";
+
     final List<GroupRoom> groups = new LinkedList<>();
 
     private Intent intentthis;
@@ -59,6 +62,8 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
 
                 GroupRoom selectedGroup = (GroupRoom) parent.getAdapter().getItem(position);
 
+
+
                 if(permission(selectedGroup.getSelectedUsers())) {
 
                     Intent intent = new Intent(getApplicationContext(), GroupChat.class);
@@ -70,7 +75,6 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(intent);
                 }
                 else{
-
                     Toast.makeText(getApplicationContext(), "You are not added to this group!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -80,18 +84,23 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
         groupList.setEmptyView(findViewById(R.id.empty_view));
 
     }
+    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
 
     private Boolean permission(ArrayList<User> selectedUsers) {
 
-        for(int i = 0; i < selectedUsers.size();i++){
+    if(selectedUsers != null) {
+        for (int i = 0; i < selectedUsers.size(); i++) {
 
-            if(selectedUsers.get(i).getUid().equals(intentthis.getStringExtra("UserID"))){
+            Log.v(TAG, selectedUsers.get(i).getUid());
+            Log.v(TAG, currentFirebaseUser.getUid());
+
+            if (selectedUsers.get(i).getUid().equals(currentFirebaseUser.getUid())) {
 
                 return true;
             }
 
         }
-
+    }
     return false;
     }
 

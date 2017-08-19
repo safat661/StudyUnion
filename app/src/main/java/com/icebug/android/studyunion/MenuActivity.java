@@ -21,6 +21,7 @@ public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Intent intentthis;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +105,7 @@ public class MenuActivity extends AppCompatActivity
 
         } else if (id == R.id.groups) {
             Intent intent = new Intent(this,GroupActivity.class);
-            intent.putExtra("UserID",intentthis.getStringExtra("UserID"));
+
             startActivity(intent);
 
         } else if (id == R.id.faq) {

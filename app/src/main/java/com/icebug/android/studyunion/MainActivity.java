@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements TextView.OnClickListener {
 
     private ProgressDialog progressDialog;
+    private static final String TAG = "MainActivity";
 
     @BindView(R.id.editTextEmail) EditText editTextEmail;
     @BindView(R.id.editTextPassword) EditText editTextPassword;
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
 
                         DatabaseReference databaseRef =  FirebaseDatabase.getInstance().getReference().child("Users").push();
 
-                        user.setUid(databaseRef.getKey());
+                        user.setUid(firebaseAuth.getCurrentUser().getUid());
 
                         databaseRef.setValue(user);
 
@@ -127,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
                         Toast.makeText(MainActivity.this, "Registered Successfully!!", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                        intent.putExtra("UserID",user.getUid());
 
                         finish();
                         startActivity(intent);
