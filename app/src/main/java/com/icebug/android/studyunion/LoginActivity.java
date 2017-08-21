@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         @BindView(R.id.editTextEmail) EditText editTextEmail;
         @BindView(R.id.editTextPassword) EditText editTextPassword;
         @BindView(R.id.buttonLogin) Button buttonSignIn;
-        @BindView(R.id.textVeiwRegister) TextView textViewRegister;
+        @BindView(R.id.buttonRegister) Button buttonRegister;
 
     private FirebaseAuth firebaseAuth;
 
@@ -50,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog = new ProgressDialog(this);
 
         buttonSignIn.setOnClickListener(this);
-        textViewRegister.setOnClickListener(this);
+        buttonRegister.setOnClickListener(this);
 
     }
 
@@ -97,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view == buttonSignIn) {
             userLogin();
         }
-        if(view == textViewRegister){
+        if(view == buttonRegister){
             finish();
             startActivity(new Intent(this, MainActivity.class));
             overridePendingTransition(R.anim.push_left_in,R.anim.push_left_out);

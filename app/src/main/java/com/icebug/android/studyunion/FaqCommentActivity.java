@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -79,7 +80,7 @@ public class FaqCommentActivity extends AppCompatActivity implements View.OnClic
 
                 faqComment = new FaqComment("" + comment.getText());
 
-                faqComment.setCommentOP("" + getIntent().getStringExtra("FaqPostOP"));
+                faqComment.setCommentOP("" + FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");

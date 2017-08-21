@@ -27,7 +27,8 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
     private DatabaseReference groupsRef;
 
     private ListView groupList;
-    private TextView text;private static final String TAG = "MainActivity";
+    private TextView text;
+    private static final String TAG = "MainActivity";
     private FloatingActionButton fab;
 
     final List<GroupRoom> groups = new LinkedList<>();
@@ -38,6 +39,9 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+        getSupportActionBar().setTitle("Groups");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         intentthis = getIntent();
 
@@ -84,6 +88,13 @@ public class GroupActivity extends AppCompatActivity implements View.OnClickList
         groupList.setEmptyView(findViewById(R.id.empty_view));
 
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
 
     private Boolean permission(ArrayList<User> selectedUsers) {

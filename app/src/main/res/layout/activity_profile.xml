@@ -8,48 +8,81 @@
     tools:context="com.icebug.android.studyunion.ProfileActivity">
 
 
-    <ScrollView
+    <ImageView
+        android:id="@+id/profile_wall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@color/cardview_shadow_start_color"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <ImageButton
+        android:id="@+id/profile_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:background="@drawable/shape_circle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        android:layout_below="@+id/profile_pic"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/user_college"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="TextView"
+        android:layout_below="@+id/user_email"
+        android:layout_toStartOf="@+id/profile_pic"
+        android:layout_marginEnd="35dp"/>
+
+    <TextView
+        android:id="@+id/user_major"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/user_college"
+        android:layout_below="@+id/user_college"
+        android:layout_marginTop="26dp"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/user_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/user_major"
+        android:layout_below="@+id/user_major"
+        android:layout_marginTop="22dp"
+        android:text="TextView"/>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="68dp"
-                android:paddingTop="15dp"
-                android:layout_gravity="center_horizontal"/>
-
-            <EditText
-                android:id="@+id/profile_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"/>
-
-            <EditText
-                android:id="@+id/editText8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="College"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/logoutButton"/>
-        </LinearLayout>
+        android:layout_toEndOf="@+id/user_year"
+        android:backgroundTint="#b0e0e6"/>
 
 
-
-    </ScrollView>
 </RelativeLayout>

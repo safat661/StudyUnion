@@ -29,13 +29,16 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="50dp"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#ffffff"
+            android:backgroundTint="#ffffff"
+            android:textColor="#ffffff"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
-                android:hint="@string/email"
+                android:hint="Email"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:textColor="#ffffff"
@@ -49,11 +52,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#ffffff"
+            android:backgroundTint="#ffffff"
+            android:textColor="#ffffff"
+            app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
             <EditText
                 android:id="@+id/editTextPassword"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -79,10 +84,10 @@
             android:paddingRight="20dp"
             android:text="Login"
             android:textColor="#FFFFFF"
-
             tools:ignore="HardcodedText"/>
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -102,13 +107,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/study_union"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FFFFFF"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/textVeiwRegister"

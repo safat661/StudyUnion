@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
 
     private ProgressDialog progressDialog;
     private static final String TAG = "MainActivity";
+    DatabaseHelper myDb;
 
     @BindView(R.id.editTextEmail) EditText editTextEmail;
     @BindView(R.id.editTextPassword) EditText editTextPassword;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+        myDb = new DatabaseHelper(this);
 
         Firebase.setAndroidContext(this);
 
