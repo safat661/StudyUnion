@@ -10,7 +10,7 @@
     android:paddingTop="25dp"
     android:paddingBottom="25dp"
     tools:context="com.icebug.android.studyunion.LoginActivity"
-    android:background="@drawable/lognnnnnnnn">
+    android:background="@drawable/library-catalogaaaaa">
 
     <LinearLayout
         android:orientation="vertical"
