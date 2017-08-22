@@ -15,20 +15,20 @@
     android:paddingTop="56dp"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
-    android:background="@drawable/shade1">
+    android:background="@drawable/register_background">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:textColor="#ffffff"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="30sp"
+
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/buttonRegister"/>
+        android:layout_alignStart="@+id/buttonRegister"
+        android:background="@drawable/sign_up"/>
 
 
         <android.support.design.widget.TextInputLayout
