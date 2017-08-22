@@ -30,12 +30,11 @@
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="TextView"
-        android:layout_below="@+id/profile_pic"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="30sp"
+        android:layout_above="@+id/user_email"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/user_email"
@@ -43,17 +42,31 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        />
+<LinearLayout
+    android:layout_width="300dp"
+    android:layout_height="100dp"
+    android:layout_below="@+id/user_email"
+    android:layout_marginTop="25dp"
+    android:layout_above="@+id/logoutButton"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    android:background="@drawable/textedit_one"
+    android:id="@+id/linearLayout3">
 
     <TextView
         android:id="@+id/user_college"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:layout_below="@+id/user_email"
         android:layout_toStartOf="@+id/profile_pic"
-        android:layout_marginEnd="35dp"/>
+        android:layout_marginEnd="35dp"
+        android:textSize="20sp"
+       />
 
     <TextView
         android:id="@+id/user_major"
@@ -62,7 +75,8 @@
         android:layout_alignStart="@+id/user_college"
         android:layout_below="@+id/user_college"
         android:layout_marginTop="26dp"
-        android:text="TextView"/>
+        android:text="TextView"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/user_year"
@@ -71,7 +85,13 @@
         android:layout_alignStart="@+id/user_major"
         android:layout_below="@+id/user_major"
         android:layout_marginTop="22dp"
-        android:text="TextView"/>
+        android:text="TextView"
+        android:textSize="20sp"/>
+
+
+
+
+</LinearLayout>
 
     <Button
         android:id="@+id/logoutButton"
@@ -79,10 +99,17 @@
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="35dp"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/user_year"
         android:backgroundTint="#b0e0e6"/>
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        android:layout_above="@+id/user_name"
+        android:layout_toEndOf="@+id/logoutButton"/>
 
 
 </RelativeLayout>

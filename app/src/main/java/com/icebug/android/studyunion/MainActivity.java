@@ -1,11 +1,14 @@
 package com.icebug.android.studyunion;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
     private ProgressDialog progressDialog;
     private static final String TAG = "MainActivity";
     DatabaseHelper myDb;
+    private FirebaseAuth firebaseAuth;
+    private Firebase mRootRef;
+    private SQLiteDatabase mSQliteDB;
 
     @BindView(R.id.editTextEmail) EditText editTextEmail;
     @BindView(R.id.editTextPassword) EditText editTextPassword;
@@ -39,16 +45,16 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
     @BindView(R.id.login) TextView login;
     @BindView(R.id.editTextCollegeYear) EditText editTextCollegeYear;
 
-    private FirebaseAuth firebaseAuth;
-    private Firebase mRootRef;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
         myDb = new DatabaseHelper(this);
+        mSQliteDB = myDb.getWritableDatabase();
 
         Firebase.setAndroidContext(this);
 
@@ -131,6 +137,8 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
 
                         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
 
+                        insertData();
+
                         finish();
                         startActivity(intent);
                         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -157,5 +165,24 @@ public class MainActivity extends AppCompatActivity implements TextView.OnClickL
         }
 
     }
+
+    public void insertData(){
+
+        ContentValues cv = new ContentValues();
+
+        cv.put("Name",editStudentName.getText().toString());
+        cv.put("Email",editTextEmail.getText().toString());
+        cv.put("College",editTextCollegeName.getText().toString());
+        cv.put("Major",editTextMajor.getText().toString());
+        cv.put("Year",editTextCollegeYear.getText().toString());
+        cv.put("UID",firebaseAuth.getCurrentUser().getUid());
+
+        long id = mSQliteDB.insert("user_table",null,cv);
+
+        Log.v(TAG,""+id);
+
+    }
+
+
 
 }

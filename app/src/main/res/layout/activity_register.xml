@@ -32,34 +32,35 @@
 
 
         <android.support.design.widget.TextInputLayout
-        android:layout_height="70dp"
-        android:layout_width="340dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="8dp"
-        android:id="@+id/editTextEmail1"
+            android:id="@+id/editTextEmail1"
+            android:layout_width="340dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="30dp"
 
             >
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="340dp"
-        android:layout_height="39dp"
-        android:layout_weight="0.35"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="55dp"
-        android:background="@drawable/textedit_one"
 
-        />
-</android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="340dp"
+                android:layout_height="39dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="55dp"
+                android:layout_weight="0.35"
+                android:background="@drawable/textedit_one"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
 
-    <android.support.design.widget.TextInputLayout
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
         android:layout_width="300dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:id="@+id/editTextStudentName1"
@@ -82,55 +83,57 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="330dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:id="@+id/editTextCollegeName1"
         android:layout_below="@+id/editTextStudentName1">
-    <EditText
-         android:id="@+id/editTextCollegeName"
-         android:layout_width="match_parent"
-         android:layout_height="39dp"
-         android:layout_weight="0.35"
-         android:hint="College Name"
-         android:inputType="text"
-         android:paddingLeft="20dp"
-         android:paddingRight="20dp"
-         android:layout_marginTop="10dp"
-         android:layout_below="@+id/editTextStudentName1"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentStart="true"
-        android:background="@drawable/textedit_one"/>
+
+        <EditText
+            android:id="@+id/editTextCollegeName"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextStudentName1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.35"
+            android:background="@drawable/textedit_one"
+            android:hint="College Name"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
     </android.support.design.widget.TextInputLayout>
 
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="280dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:id="@+id/editTextMajor1"
         android:layout_below="@+id/editTextCollegeName1">
-    <EditText
-        android:id="@+id/editTextMajor"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_weight="0.35"
-        android:hint="Major"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editTextCollegeName1"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/textedit_one"/>
+
+        <EditText
+            android:id="@+id/editTextMajor"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/editTextCollegeName1"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.35"
+            android:background="@drawable/textedit_one"
+            android:hint="Major"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
     </android.support.design.widget.TextInputLayout>
 
 
 
     <android.support.design.widget.TextInputLayout
     android:layout_width="310dp"
-    android:layout_height="70dp"
+    android:layout_height="55dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:id="@+id/editTextCollegeYear1"
@@ -153,7 +156,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:id="@+id/editTextPassword1"
@@ -176,7 +179,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:id="@+id/editTextPassword21"
@@ -224,7 +227,8 @@
         android:layout_below="@+id/buttonRegister"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp"
+        android:textColor="#ffffff"/>
 
     </LinearLayout>
 </ScrollView>
